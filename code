@@ -1,0 +1,44 @@
+def price():
+    sandwichchoice = raw_input("Chicken sandwich for $5.25, Beef for $6.25, or Tofu for $5.75. ").lower()
+    if sandwichchoice == 'chicken':
+        sandwich = 5.25
+        print('chicken')
+    elif sandwichchoice == 'beef':
+        sandwich = 6.25
+        print('beef')
+    elif sandwichchoice == 'tofu':
+        sandwich = 5.75
+        print('tofu')
+    
+    drink_choice = raw_input("Small drink for $1.00, Medium drink for $1.75, or a large drink for $2.25. ").lower()
+    if drink_choice == 'small':
+        drink = 1.00
+    elif drink_choice == 'medium':
+        drink = 1.75
+    elif drink_choice == 'large':
+        drink = 2.25
+    
+    fries_choice = raw_input("Small fries for $1.00, medium fries for $1.50, or a large fries for $2.00. ").lower()
+    if fries_choice == 'small':
+        x = raw_input('Would you like to mega-size your fries? ').lower()
+        if x == 'yes':
+            fries = 2.00
+        else:
+            fries = 1.00
+    elif fries_choice == 'medium':
+        fries = 1.50
+    elif fries_choice =='large':
+        fries = 2.00
+    
+    ketchup_choice = raw_input('Would you like ketchup? ').lower()
+    if ketchup_choice == 'yes':
+        packet_num = raw_input('How many would you like? ')
+        packet_num = int(packet_num)
+        ketchup = packet_num * .25
+    else:
+        ketchup = 0
+        
+    total_price = fries + drink + sandwich + ketchup
+    print('You got a ' + sandwichchoice + ' sandwich, a ' + fries_choice + ' fries, a ' + drink_choice + ' drink, and ' + str(packet_num) + ' ketcup packet(s). That will be $' + str(total_price) + '.') 
+    
+price()
