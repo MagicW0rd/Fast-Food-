@@ -1,0 +1,78 @@
+def price():
+    sandwichchoice = raw_input("Chicken sandwich for $5.25, Beef for $6.25, or Tofu for $5.75. ").lower()
+    if sandwichchoice == 'chicken':
+        sandwich = 5.25
+        print('chicken')
+    elif sandwichchoice == 'beef':
+        sandwich = 6.25
+        print('beef')
+    elif sandwichchoice == 'tofu':
+        sandwich = 5.75
+        print('tofu')
+    else: 
+        sandwichchoice == 'none'
+        sandwichchoice = 0
+    
+    drink_choice = raw_input("Small drink for $1.00, Medium drink for $1.75, or a large drink for $2.25. ").lower()
+    if drink_choice == 'small':
+        drink = 1.00
+    elif drink_choice == 'medium':
+        drink = 1.75
+    elif drink_choice == 'large':
+        drink = 2.25
+    else:
+        drink_choice = 'none'
+        drink = 0
+    
+    fries_choice = raw_input("Small fries for $1.00, medium fries for $1.50, or a large fries for $2.00. ").lower()
+    if fries_choice == 'small':
+        x = raw_input('Would you like to mega-size your fries? ').lower()
+        if x == 'yes':
+            fries_choice == 'large'
+            fries = 2.00
+        else:
+            fries = 1.00
+    elif fries_choice == 'medium':
+        fries = 1.50
+    elif fries_choice =='large':
+        fries = 2.00
+    else:
+        fries_choice = 'none'
+        fries = 0
+        
+    ketchup_choice = raw_input('Would you like ketchup? ').lower()
+    if ketchup_choice == 'yes':
+        packet_num = raw_input('How many would you like? ')
+        ketchup = int(packet_num) * .25
+    else:
+        packet_num = 0
+        ketchup = 0
+    global total_price
+    if fries and drink and sandwich != 0:    
+        total_price += fries + drink + sandwich + ketchup - 1
+    else: 
+        total_price += fries + drink + sandwich + ketchup
+    print("Sandwich: " + sandwichchoice)
+    print("Fries: " + fries_choice)
+    print("Drink: " + drink_choice)
+    print("Total price: " + str(total_price))
+
+def loop_menu():
+    x = 0
+    while x < 2:
+        if x == 0:
+            if raw_input("Would you like anything? ").lower() == 'yes':
+                price()
+                x = x + 1 
+                if x == 1:
+                    if raw_input("Anything else? ").lower() == 'yes':
+                        price()
+                    else: 
+                        x = 2
+                        print()
+                
+            else:
+                x = 2
+                print("Have a good day!")
+            
+loop_menu()
